@@ -1,0 +1,3 @@
+!# /bin/bash
+echo sail stoping
+vendor/bin/sail down

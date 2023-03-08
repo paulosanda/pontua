@@ -1,0 +1,3 @@
+!# /bin/bash
+echo sail starting
+vendor/bin/sail up -d
