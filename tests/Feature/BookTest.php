@@ -29,4 +29,73 @@ class BookTest extends TestCase
             'author' => $book->author,
         ]);
     }
+
+    public function test_create_book_route()
+    {
+        $user = User::factory()->createOne();
+
+        $this->actingAs($user)->post(route('book.add'), [
+            'title' => 'Titulo do livro',
+            'genre' => 'Genero literario',
+            'author' => 'Autor'
+        ]);
+
+        $this->assertDatabaseHas('books', [
+            'title' => 'Titulo do livro',
+            'genre' => 'Genero literario',
+            'author' => 'Autor'
+        ]);
+    }
+
+    public function test_book_update_route()
+    {
+        $user = User::factory()->createOne();
+
+        $book = $this->actingAs($user)->post(route('book.add'), [
+            'title' => 'Titulo do livro',
+            'genre' => 'Genero literario',
+            'author' => 'Autor'
+        ]);
+
+        $this->actingAs($user)->put(route('book.update', $book['id']), [
+            'title' => 'Titulo do livro alterado',
+            'genre' => 'Genero literario alterado',
+            'author' => 'Autor alterado'
+        ]);
+
+        $this->assertDatabaseHas('books', [
+            'title' => 'Titulo do livro alterado',
+            'genre' => 'Genero literario alterado',
+            'author' => 'Autor alterado'
+        ]);
+    }
+
+    public function test_show_book_route()
+    {
+        $user = User::factory()->createOne();
+
+        $book = $this->actingAs($user)->post(route('book.add'), [
+            'title' => 'Titulo do livro',
+            'genre' => 'Genero literario',
+            'author' => 'Autor'
+        ]);
+
+        $response = $this->actingAs($user)->get(route('book.show', $book['id']))
+            ->assertOk();
+    }
+
+    public function test_delete_book_route()
+    {
+        $user = User::factory()->createOne();
+
+        $book = $this->actingAs($user)->post(route('book.add'), [
+            'title' => 'Titulo do livro',
+            'genre' => 'Genero literario',
+            'author' => 'Autor'
+        ]);
+
+        $this->actingAs($user)->delete(route('book.delete', $book['id']));
+
+        $this->assertDatabaseCount('books', 0);
+    }
 }
