@@ -30,7 +30,7 @@ class BookTest extends TestCase
         ]);
     }
 
-    public function test_create_book_route()
+    public function test_create_book_route(): void
     {
         $user = User::factory()->createOne();
 
@@ -47,7 +47,7 @@ class BookTest extends TestCase
         ]);
     }
 
-    public function test_book_update_route()
+    public function test_book_update_route(): void
     {
         $user = User::factory()->createOne();
 
@@ -70,7 +70,7 @@ class BookTest extends TestCase
         ]);
     }
 
-    public function test_show_book_route()
+    public function test_show_book_route(): void
     {
         $user = User::factory()->createOne();
 
@@ -84,7 +84,7 @@ class BookTest extends TestCase
             ->assertOk();
     }
 
-    public function test_delete_book_route()
+    public function test_delete_book_route(): void
     {
         $user = User::factory()->createOne();
 

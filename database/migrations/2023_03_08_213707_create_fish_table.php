@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fish', function (Blueprint $table) {
+        Schema::create('fishes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->string('scientific_name')->nullable();
             $table->timestamps();
         });
     }

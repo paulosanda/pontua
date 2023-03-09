@@ -6,12 +6,6 @@ use App\Models\User;
 
 class CreateUser extends ActionBase
 {
-    /**
-     * Execute the action.
-     *
-     * @param  array  $input
-     * @return mixed
-     */
     public function execute(array $input)
     {
         $this->validate($input, [

@@ -44,6 +44,7 @@ class BookController extends Controller
         return response()->json($book, 200);
     }
 
+
     /**
      * update
      *
@@ -69,6 +70,12 @@ class BookController extends Controller
      * @param  mixed $id
      * @return JsonResponse
      */
+    /**
+     * show
+     *
+     * @param  mixed $id
+     * @return JsonResponse
+     */
     public function show($id): JsonResponse
     {
         $book = Book::find($id);
@@ -76,7 +83,13 @@ class BookController extends Controller
         return response()->json($book, 200);
     }
 
-    public function delete($id)
+    /**
+     * delete
+     *
+     * @param  mixed $id
+     * @return JsonResponse
+     */
+    public function delete($id): JsonResponse
     {
         $response = app(BookDelete::class)->execute($id);
 
