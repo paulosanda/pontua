@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserTest extends TestCase
 {
@@ -26,5 +27,18 @@ class UserTest extends TestCase
         ]);
 
         $this->assertDatabaseCount('users', 1);
+    }
+
+    public function test_update_password_route()
+    {
+        $userData = User::factory()->create();
+
+        $new_password = fake()->password;
+
+        $update_password = $this->actingAs($userData)->put(route('update.password'), [
+            'new_password' => $new_password,
+        ]);
+
+        $update_password->assertStatus(200);
     }
 }

@@ -42,4 +42,6 @@ Route::middleware('auth:sanctum')->group(function () {
         ]);
     Route::put('fish/{id}', [FishController::class, 'update'])->name('fish.edit');
     Route::delete('fish/{id}', [FishController::class, 'delete'])->name('fish.delete');
+
+    Route::put('updatePassword', [UserController::class, 'update'])->name('update.password');
 });
