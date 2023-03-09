@@ -215,6 +215,43 @@
 				"url": null
 			},
 			"response": []
+		},
+		{
+			"name": "Password update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|RG5yp9SU66rHJ3aNu2IaRuyxOtRUeGW1H2N8O97p",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"new_password\": \"Nova senha\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/updatePassword",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"updatePassword"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
