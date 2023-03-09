@@ -7,13 +7,7 @@ use App\Models\Book;
 class BookUpdate extends ActionBase
 {
 
-    /**
-     * execute
-     *
-     * @param  mixed $input
-     * @return array
-     */
-    public function execute($input): array
+    public function execute($input)
     {
         $this->validate($input, [
             'title' => 'string|required',
@@ -35,7 +29,7 @@ class BookUpdate extends ActionBase
             ];
         } else {
             $response = [
-                'status' => 500,
+                'status' => 400,
                 'message' => 'Erro ao alterar o livro, verifique se o id esta correto'
             ];
         }

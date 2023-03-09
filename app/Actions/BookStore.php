@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class BookStore extends ActionBase
 {
 
+
     public function execute($input)
     {
         $this->validate($input, [
