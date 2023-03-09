@@ -3,7 +3,7 @@
 Para subir esta aplicação laravel use o sail: ./vendor/bin/sail up -d
 ou o script ./up após dar a permissão necessária para execução, o mesmo vale para encerrar(down).
 
-# Instalação
+### Instalação
 
 Após clonar o repositório:
 
@@ -16,6 +16,6 @@ Após clonar o repositório:
 
 > em vendor/bin/sail crie a chave do projeto "php artisan key:generate" e também rode as migrations "php artisan migrate"
 
-# Collection para Postman
+### Collection para Postman
 
 Use o arquivo endpoints.postman_collection.json para testar a api com o Postman.
