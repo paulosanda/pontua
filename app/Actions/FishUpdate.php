@@ -21,7 +21,7 @@ class FishUpdate extends ActionBase
             'scientific_name' => 'string|required',
         ]);
 
-        $fish = Fish::where('id', '=', $input['id'])->update([
+        $fish = Fish::where('id', $input['id'])->update([
             'name' => $input['name'],
             'scientific_name' => $input['scientific_name'],
         ]);

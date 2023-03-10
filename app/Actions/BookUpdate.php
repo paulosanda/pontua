@@ -15,7 +15,7 @@ class BookUpdate extends ActionBase
             'author' => 'string|required',
         ]);
 
-        $book = Book::where('id', '=', $input['id'])->update([
+        $book = Book::where('id', $input['id'])->update([
             'title' => $input['title'],
             'genre' => $input['genre'],
             'author' => $input['author']
