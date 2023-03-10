@@ -29,7 +29,7 @@ class UserTest extends TestCase
         $this->assertDatabaseCount('users', 1);
     }
 
-    public function test_update_password_route()
+    public function test_update_password_route(): void
     {
         $userData = User::factory()->create();
 
